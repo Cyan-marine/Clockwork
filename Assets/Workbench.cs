@@ -629,11 +629,13 @@ public class Workbench : MonoBehaviour
                     //Is the item a broken component
                     else if(item[0].child.itemID != 10 && item[0].child.broken)
                     {
+                        Debug.Log("Repair!");
                         item[0].child.broken = false;
                     }
                     //Are there enough items to fix an empty mechanism
                     else if(item[0].child.itemID == 10 && !item[0].child.broken)
                     {
+                        Debug.Log("Filling!");
                         WatchComponent mech = item[0].child.GetComponent<WatchComponent>();
                         bool[] used = new bool[] {false, false, false};
                         int counter = 0;
@@ -647,12 +649,14 @@ public class Workbench : MonoBehaviour
                                     if(!used[j] && item[j+1] != null && item[j+1].child.itemID == mech.componentID[i])
                                     {
                                         used[j] = true;
+                                        Debug.Log(item[j + 1].child.itemID + mech.componentID[i]);
                                         counter++;
                                     }
                                 }
                             }
                         }
-                        if(counter >= mech.numberOfComponents)
+                        Debug.Log(counter);
+                        if (counter >= mech.numberOfComponents)
                         {
                             item[0] = Instantiate(GameManager.instance.items[10]);
                             item[0].child.broken = false;

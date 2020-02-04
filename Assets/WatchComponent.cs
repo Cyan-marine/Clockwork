@@ -22,6 +22,11 @@ public class WatchComponent : Item
         interactingPlayer[1] = null;
         itemImage = GetComponent<SpriteRenderer>().sprite;
         activator = GetComponentInParent<Activator>();
+
+        for(int i = 0; i < 3; i++)
+        {
+            if (componentExists[i]) numberOfComponents++;
+        }
     }
 
     // Update is called once per frame
