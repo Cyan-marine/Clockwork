@@ -68,6 +68,12 @@ public class Player : MonoBehaviour
         else
         {
             body.velocity = Vector2.zero;
+            //SNEAKING INTO CYAN TERRITORY
+            //Zapomniałaś czegoś :P
+            anim.SetFloat("Magnitude", 0);
+            //Magnitude działa bardzo dobrze kiedy postać się rusza, ale nie ustawiasz go z powrotem na 0 jak postać stoi w miejscu
+            //Tamten if działa tylko jeśli postać się rusza :P
+            //CYAN TERRITORY END
         }
     }
 
