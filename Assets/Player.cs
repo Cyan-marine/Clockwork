@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         //RUCH POSTACI
+
         float moveX = Input.GetAxisRaw("Horizontal" + playerNumber);
         float moveY = Input.GetAxisRaw("Vertical" + playerNumber);
 
@@ -55,6 +56,14 @@ public class Player : MonoBehaviour
         {
             Vector2 movement = new Vector2(moveX, moveY).normalized * speed;
             body.velocity = movement;
+
+            //CYAN TERRITORY START
+            //Jeśli coś jest nie tak proszę śmiało poprawić
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+            anim.SetFloat("Magnitude", movement.magnitude);
+            //magnitude chyba mi nie działa :C
+            //CYAN TERRITORY END
         }
         else
         {
